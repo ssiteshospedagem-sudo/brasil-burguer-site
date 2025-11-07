@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="pt-br" translate="no">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta name="google" content="notranslate">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/jpg" href="../../images/logo burgao raiz.webp">
+<title>Brasil BURGUER - Faça seu pedido!</title>
+<meta name="description" content="Faça seu pedido online no Brasil BURGUER!">
+<link type="text/css" href="../../css/delivry.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style type="text/css">
+    h1,h2{color:#000}
+    header#topo .cover{background-color:#EA1D2C}
+    header#topo #menuCategorias{background:#EA1D2C}
+    .btn, a.voltar{background:#EA1D2C}
+    .box-total{margin-top:10px;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#fafafa}
+    .line{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed #e5e7eb}
+    .line:last-child{border-bottom:0}
+    .form-endereco{display:none;margin-top:12px;border:1px dashed #e5e7eb;border-radius:12px;padding:12px;background:#fafafa}
+    .grid{display:grid;gap:10px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    .grid.cols-3{grid-template-columns:1fr 1fr 1fr}
+    .input{display:flex;flex-direction:column;gap:6px}
+    .input input{padding:10px 12px;border-radius:10px;border:1px solid #d1d5db}
+    .cta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .btnPrimary{background:#111;color:#fff;border:none;border-radius:999px;padding:12px 18px;font-weight:800}
+    .opcoes.selecionado{border:2px solid #EA1D2C;border-radius:10px}
+</style>
+<meta name="theme-color" content="#000">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- === CONFIG: checkout por produto === -->
+<script>const CHECKOUT_URL="COLOQUE_AQUI_O_SEU_LINK_DE_CHECKOUT";</script>
+</head>
+
+<body>
+<div id="opacidade" class="fechar"></div>
+<div>
+  <div class="container containerFinalizar">
+    <a class="voltar" href="../../index.html" title="Voltar"><i class="fa-solid fa-chevron-left"></i> VOLTAR</a>
+    <div id="detalhesProduto">
+      <div class="info1">
+        <div class="somarAoPreco" style="display:none">s</div>
+        <div class="fotoProduto">
+          <figure>
+            <img src="../../images/duplo.jpg" width="300px" height="300px" alt="Burgão Duplo">
+          </figure>
+        </div>
+        <div class="descricao">
+          <h3>Burgão Duplo</h3>
+          <span class="detalhe">Selecione adicionais e refrigerante. O endereço será solicitado ao continuar para pagamento.</span><br>
+          <span class="preco">R$ 26,90</span>
+          <span class="estoque"><i class="fa-solid fa-circle-down"></i> últimas unidades promocionais</span>
+        </div>
+      </div>
+
+      <div class="info2">
+        <div id="extras" class="tipo" data-calculo="n" data-minimo="0" data-maximo="2" data-opcional="n">
+          <div class="topo">
+            <div>
+              <h3>Adicionais:</h3>
+              <span class="detalhe">Escolha até 2 opções</span>
+            </div>
+            <div class="col2">
+              <span class="escolhidos"><span>0</span>/2</span>
+              <i class="fa-solid fa-circle-check" style="display: inline"></i>
+            </div>
+          </div>
+          
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Cebola caramelizada</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Queijo Provolone</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Hamburguer</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Alface e tomate</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Catupiry</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Bacon</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+        </div>
+
+        <div id="refris" class="tipo" data-calculo="n" data-minimo="0" data-maximo="1" data-opcional="n">
+          <div class="topo">
+            <div>
+              <h3>Refrigerantes: (Garrafa 2L)</h3>
+              <span class="detalhe">Escolha 1 opção</span>
+            </div>
+            <div class="col2">
+              <span class="escolhidos"><span>0</span>/1</span>
+              <i class="fa-solid fa-circle-check" style="display: inline"></i>
+            </div>
+          </div>
+          
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Guaraná Antartica</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Fanta Laranja</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Coca-Cola</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Guaraná Antartica Zero</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Fanta Zero</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="opcoes" data-id="x">
+      <div class="desc" style="width: 100%; flex-direction: row; align-items: center; gap:10px;">
+        <span class="nome"><b>Coca-Cola Zero</b> <span class="preco"></span></span>
+        <div class="qtdeProdutoOpcao">
+          <button class="removerQtdeOpcao" aria-label="Remover"><i class="fa-solid fa-minus"></i></button>
+          <input class="qtdeOpcao" type="text" value="0" min="0" size="3" disabled="">
+          <button class="adicionarQtdeOpcao" aria-label="Adicionar"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+        </div>
+
+        <label>Adicionar algum detalhe?</label>
+        <input class="observacao" id="observacao" type="text" placeholder="Escreva o detalhe aqui ..." maxlength="140">
+        <em><span id="obsCount">0</span>/140</em>
+      </div>
+
+      <div class="info3">
+        <!-- Box de valores separados -->
+        <div class="box-total" id="box-total">
+          <div class="line"><span>Produto</span><b id="valor-produto">R$ 26,90</b></div>
+          <div class="line"><span>Adicionais</span><b id="valor-adicionais">R$ 0,00</b></div>
+          <div class="line"><span>Total</span><b id="valor-total">R$ 26,90</b></div>
+        </div>
+
+        <!-- Form de endereço (expande só após o clique) -->
+        <div class="form-endereco" id="enderecoBox">
+          <h3 style="margin:0 0 8px;">Endereço de entrega</h3>
+          <div class="grid cols-2">
+            <div class="input"><label>Nome</label><input id="nome" type="text" placeholder="Seu nome"></div>
+            <div class="input"><label>WhatsApp</label><input id="whats" type="tel" placeholder="(00) 90000-0000"></div>
+          </div>
+          <div class="grid cols-3" style="margin-top:6px">
+            <div class="input"><label>Rua / Av.</label><input id="rua" type="text" placeholder="Rua Exemplo"></div>
+            <div class="input"><label>Número</label><input id="numero" type="text" placeholder="123"></div>
+            <div class="input"><label>Complemento</label><input id="comp" type="text" placeholder="Apto 202, bloco B"></div>
+          </div>
+          <div class="grid cols-2" style="margin-top:6px">
+            <div class="input"><label>Bairro</label><input id="bairro" type="text" placeholder="Centro"></div>
+            <div class="input"><label>Cidade</label><input id="cidade" type="text" placeholder="Sua cidade"></div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <button class="btnPrimary" id="btn-pagar"><i class="fa-solid fa-credit-card"></i> Continuar para pagamento</button>
+        </div>
+
+        <a id="checkoutLink" href="#" style="display:none" rel="noopener" target="_blank">checkout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // contador de observação
+  (function(){
+    const obs = document.getElementById('observacao');
+    const c = document.getElementById('obsCount');
+    if (obs && c) obs.addEventListener('input', ()=> c.textContent = obs.value.length);
+  })();
+
+  // Parse de preço "54,90" -> 54.90
+  function parsePrecoBR(v){ if(!v) return 0; v = (''+v).replace(/\./g,'').replace(',','.'); const n = parseFloat(v); return isNaN(n)?0:n; }
+  function formataBR(n){ return 'R$ ' + n.toFixed(2).replace('.',','); }
+
+  const BASE_PRICE = parsePrecoBR('26,90');
+  document.getElementById('valor-produto').textContent = formataBR(BASE_PRICE);
+  document.getElementById('valor-total').textContent = formataBR(BASE_PRICE);
+
+  function setupTipo(tipoEl){
+    const max = parseInt(tipoEl.dataset.maximo || '0', 10) || 0;
+    const qtdSpan = tipoEl.querySelector('.col2 .escolhidos span');
+    const opcoes = tipoEl.querySelectorAll('.opcoes');
+
+    function countSelected(){
+      let total = 0;
+      opcoes.forEach(op=>{
+        const input = op.querySelector('.qtdeOpcao');
+        const val = parseInt(input.value||'0',10);
+        if(val>0) total += val;
+      });
+      return total;
+    }
+
+    function setSelected(op, v){
+      const input = op.querySelector('.qtdeOpcao');
+      input.value = String(v);
+      op.classList.toggle('selecionado', v>0);
+    }
+
+    opcoes.forEach(op=>{
+      const plus = op.querySelector('.adicionarQtdeOpcao');
+      const minus = op.querySelector('.removerQtdeOpcao');
+      plus.addEventListener('click', function(e){
+        e.preventDefault();
+        const current = parseInt(op.querySelector('.qtdeOpcao').value||'0',10);
+        if(current>=1) return; // 0/1 por item
+        const total = countSelected();
+        if(max && total>=max){
+          Swal.fire('Atenção', `Você pode escolher no máximo ${max} opção(ões).`, 'info');
+          return;
+        }
+        setSelected(op, 1);
+        qtdSpan.textContent = countSelected();
+        updateTotals();
+      });
+      minus.addEventListener('click', function(e){
+        e.preventDefault();
+        const current = parseInt(op.querySelector('.qtdeOpcao').value||'0',10);
+        if(current<=0) return;
+        setSelected(op, 0);
+        qtdSpan.textContent = countSelected();
+        updateTotals();
+      });
+    });
+
+    // init
+    qtdSpan.textContent = countSelected();
+  }
+
+  function getOpcaoPreco(op){
+    // se existir um elemento .preco dentro da opção, tentar ler
+    const precoEl = op.querySelector('.preco');
+    if(precoEl){
+      const txt = precoEl.textContent;
+      return parsePrecoBR(txt);
+    }
+    return 0; // padrão: sem custo adicional
+  }
+
+  function updateTotals(){
+    let add = 0;
+    document.querySelectorAll('#detalhesProduto .tipo .opcoes').forEach(op=>{
+      const val = parseInt(op.querySelector('.qtdeOpcao').value||'0',10);
+      if(val>0) add += getOpcaoPreco(op) * val;
+    });
+    document.getElementById('valor-adicionais').textContent = formataBR(add);
+    document.getElementById('valor-total').textContent = formataBR(BASE_PRICE + add);
+  }
+
+  document.querySelectorAll('.tipo').forEach(setupTipo);
+
+  // Endereço expande/valida/checkout
+  function montarResumo(){
+    const data = {
+      nome: document.getElementById('nome')?.value.trim() || '',
+      whats: document.getElementById('whats')?.value.trim() || '',
+      rua: document.getElementById('rua')?.value.trim() || '',
+      numero: document.getElementById('numero')?.value.trim() || '',
+      comp: document.getElementById('comp')?.value.trim() || '',
+      bairro: document.getElementById('bairro')?.value.trim() || '',
+      cidade: document.getElementById('cidade')?.value.trim() || '',
+      observacao: (document.getElementById('observacao')?.value || '').trim()
+    };
+    return data;
+  }
+  function validar(d){
+    const req = ['nome','whats','rua','numero','bairro','cidade'];
+    for (const k of req){
+      if(!d[k]){ Swal.fire('Atenção','Preencha: '+k.toUpperCase(),'warning'); return false; }
+    }
+    return true;
+  }
+
+  const enderecoBox = document.getElementById('enderecoBox');
+  const btnPagar = document.getElementById('btn-pagar');
+
+  btnPagar.addEventListener('click', function(){
+    if (enderecoBox.style.display === 'none' || enderecoBox.style.display === '') {
+      enderecoBox.style.display = 'block';
+      btnPagar.innerHTML = '<i class="fa-solid fa-credit-card"></i> Ir para pagamento';
+      enderecoBox.scrollIntoView({behavior:'smooth', block:'start'});
+      return;
+    }
+    const d = montarResumo();
+    if(!validar(d)) return;
+    sessionStorage.setItem('pedido_endereco', JSON.stringify(d));
+
+    const url = new URL(CHECKOUT_URL, window.location.origin);
+    const params = new URLSearchParams(window.location.search);
+    for (const [k,v] of params.entries()) url.searchParams.set(k,v);
+    document.getElementById('checkoutLink').href = url.toString();
+    window.location.href = url.toString();
+  });
+
+</script>
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/deliveryProduto.js"></script>
+<script src="../../js/all.js" data-auto-replace-svg="nest" defer type="text/javascript"></script>
+<script type="text/javascript" src="../../js/jquery-mask.js" defer></script>
+<script src="../../js/sweetalert.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>

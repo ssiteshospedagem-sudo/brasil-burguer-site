@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" translate="no">
+<head>
+<meta charset="utf-8"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com/"></script>
+<!-- Font Awesome -->
+<link href="css/all.min.css" rel="stylesheet"/>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Estilo personalizado para o Swal -->
+<style>
+        .caixa-cidade {
+            background-color: #f3f4f6;
+            /* cinza claro */
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            text-align: center;
+            max-width: 200px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .caixa-cidade p:first-child {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            color: #111827;
+        }
+
+        .caixa-cidade p:last-child {
+            font-size: 14px;
+            margin: 0;
+            color: #6b7280;
+        }
+
+        .swal2-popup.rounded-xl {
+            border-radius: 16px !important;
+            padding: 32px 24px !important;
+            font-family: 'Segoe UI', sans-serif;
+        }
+    </style>
+<meta content="notranslate" name="google"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="images/logo burgao raiz.webp" rel="shortcut icon" type="image/jpg">
+<title>Brasil BURGUER - Faça seu pedido!</title>
+<meta content="Faça seu pedido online no Brasil BURGUER." name="description"/>
+<link href="css/delivry.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+        h1,
+        h2 {
+            color: #000000;
+        }
+
+        header#topo .cover {
+            background-color: #EA1D2C;
+        }
+
+        header#topo .info h1 {
+            color: #000000;
+        }
+
+        header#topo .info .icones a {
+            color: #000000;
+            border-color: #000000;
+        }
+
+        header#topo .cover .logo {
+            background: #000000;
+        }
+
+        header#topo #menuCategorias {
+            background: #EA1D2C;
+        }
+
+        header#topo .categorias a {
+            border-top-color: #EA1D2C;
+        }
+
+        footer {
+            background: #EA1D2C;
+        }
+
+        footer#carrinho .container .icone span {
+            color: #EA1D2C;
+        }
+
+        .btn,
+        a.voltar,
+        .btnSair,
+        .btnFidelidade,
+        .btnGoogle,
+        .btnEmail,
+        .btnSemCadastro {
+            background: #EA1D2C;
+        }
+
+        .qtdeProduto i:hover {
+            color: #000000;
+        }
+
+        .lista .item .col .nomeProduto {
+            color: #EA1D2C;
+        }
+
+        main#lista .produtos .item a:hover {
+            border: 2px solid #000000;
+        }
+
+        main#lista h1,
+        h2 {
+            color: #000000
+        }
+
+        #pedido .entrega .radio label input[type="radio"]:checked,
+        #pedido .entrega .radio label:hover {
+            background: #EA1D2C;
+        }
+
+        #pedido .pagamentos input[type="radio"]:checked+label::before,
+        #detalhesProduto .info2 .opcoes input[type="checkbox"]:checked+label::before,
+        #pedido .trocarPontos input[type="checkbox"]:checked+label::before {
+            background-color: #000000;
+            border: 2px solid #EA1D2C;
+        }
+
+        .selecionado {
+            border: 2px solid #EA1D2C;
+        }
+
+        #meuCarrinho button.fechar,
+        #rastreamento .registro span.passou {
+            background: #000000;
+        }
+
+        span.estoque i {
+            color: #EA1D2C;
+        }
+    </style>
+<meta content="#5b0e5c" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capacity"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="#5b0e5c" name="apple-mobile-web-app-status-bar"/>
+<meta content="#5b0e5c" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Brasil BURGUER" name="apple-mobile-web-app-title"/>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<!-- Meta Pixel Code -->
+<script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '603611537225433');
+        fbq('track', 'PageView');
+    </script>
+<noscript><img height="1" src="https://www.facebook.com/tr?id=603611537225433&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Script Utmify -->
+<script async="" data-utmify-prevent-subids="" data-utmify-prevent-xcod-sck="" defer="" src="https://cdn.utmify.com.br/scripts/utms/latest.js"></script>
+<script>
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const fbclid = params.get("fbclid");
+
+            // Salva o fbclid ao entrar no site
+            if (fbclid) {
+                sessionStorage.setItem("fbclid", fbclid);
+            }
+
+            // Aplica o fbclid em todos os links internos
+            const savedFbclid = sessionStorage.getItem("fbclid");
+            if (savedFbclid) {
+                const anchors = document.querySelectorAll('a[href^="/"], a[href*="' + window.location.hostname + '"]');
+
+                anchors.forEach(link => {
+                    const url = new URL(link.href, window.location.origin);
+                    url.searchParams.set("fbclid", savedFbclid);
+                    link.href = url.toString();
+                });
+            }
+        })();
+    </script>
+<style>
+        .diaPromoEstilo {
+            color: #ffffff;
+            background: #EA1D2C;
+            padding: 2px 6px;
+            margin-bottom: 2px;
+            border-radius: 8px;
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</link><style>
+/* Badge verificado alinhado */
+h1 img[alt="Verificado"]{display:inline-block;transform:translateY(1px)}
+</style></head>
+<body>
+<script>
+            window.addEventListener('DOMContentLoaded', () => {
+                function getDiaComOU() {
+                    const dias = ["DOMINGOU", "SEGUNDOU", "TERÇOU", "QUARTOU", "QUINTOU", "SEXTOU", "SABADOU"];
+                    const agora = new Date();
+                    const hora = agora.getHours();
+                    let diaIndex = agora.getDay();
+                    if (hora < 6) {
+                        diaIndex = (diaIndex - 1 + 7) % 7; // Volta um dia, ajustando caso seja domingo
+                    }
+                    return dias[diaIndex];
+                }
+
+                const diaAtual = getDiaComOU();
+
+                const spans = document.querySelectorAll(".diaPromo");
+                spans.forEach(el => {
+                    el.innerHTML = `<span class="diaPromoEstilo">SÓ HOJE: ${diaAtual} 🔥</span>`;
+                });
+            });
+        </script>
+<div class="fechar" id="opacidade"></div>
+<div>
+<header id="topo">
+<div class="cover main" style="
+            background-image: url(images/cover1.webp);
+          ">
+<div class="logo">
+<figure>
+<img alt="Burguer LAB" src="images/logo burgao raiz.webp" title="Burguer Lab"/>
+</figure>
+</div>
+<div class="borda"></div>
+</div>
+<div class="container">
+<div class="info">
+<h1 style="display: flex; align-items: center; gap: 8px;">
+                            Brasil BURGUER
+                            <img alt="Verificado" src="images/verificado.png" style="width:18px;height:18px;vertical-align:middle;border-radius:999px;margin-left:6px;"/>
+</h1>
+<div class="icones">
+<a href="https://www.instagram.com/burgaodacasaoficial/" target="_blank" title="Instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a class="informacoes" href="#info" title="Info">
+<i class="fa-solid fa-info"></i>
+</a>
+</div>
+<div class="detalhe">
+<span><i class="fa-solid fa-coins"></i> Pedido Mínimo
+							<b>R$ 15,00</b></span>
+<div>
+<span><i class="fa-solid fa-motorcycle"></i> <b>30-50</b> min</span> • <span style="color: #077c22">Grátis</span>
+</div>
+</div>
+<div class="detalhe" id="location-display" style="display: flex; gap: 3px;">
+<i aria-hidden="true" class="fa fa-map-marker-alt"></i>
+<span>Cidade - UF • 1,8km de você</span>
+</div>
+<div class="detalhe">
+<i aria-hidden="true" class="fa fa-star"></i><b>4,8</b> (3.248 avaliações)
+                        </div>
+<div class="aberto">
+<i class="fa-solid fa-circle btn-pisca"></i>
+<span id="status-loja">ABERTO</span>
+<i class="fa-regular fa-clock horario" id="icone-relogio" style="display: none;"></i>
+<span class="horario" id="horario-fechamento" style="display: none;"></span>
+</div>
+<script>
+                            function atualizarStatusLoja() {
+                                const agora = new Date();
+                                const horas = agora.getHours();
+                                const statusLoja = document.getElementById("status-loja");
+                                const iconeRelogio = document.getElementById("icone-relogio");
+                                const horarioFechamento = document.getElementById("horario-fechamento");
+
+                                if (horas >= 0 && horas < 2) {
+                                    statusLoja.textContent = "ABERTO";
+                                    horarioFechamento.textContent = "até 02:00";
+                                    iconeRelogio.style.display = "inline";
+                                    horarioFechamento.style.display = "inline";
+                                } else if (horas >= 8 && horas < 23) {
+                                    statusLoja.textContent = "ABERTO";
+                                    iconeRelogio.style.display = "none";
+                                    horarioFechamento.style.display = "none";
+                                } else {
+                                    statusLoja.textContent = "ABERTO";
+                                    iconeRelogio.style.display = "none";
+                                    horarioFechamento.style.display = "none";
+                                }
+                            }
+
+                            atualizarStatusLoja();
+                        </script>
+</div>
+</div>
+<div id="menuCategorias">
+<div class="container">
+<div class="categorias">
+<a href="#pague-1-leve-2" title="Combos">
+							Promoção de primeiro pedido ativa!
+						</a>
+</div>
+</div>
+</div>
+</header>
+<main id="lista" style="padding-bottom: 0;">
+<div class="container">
+<div class="alert alert-success">
+<b>Entrega Grátis</b> para <b class="localCidade">sua região</b>!
+                    </div>
+<div class="categoria" id="pague-1-leve-2">
+<h2>Combos Burgão</h2>
+<div class="produtos">
+<div class="item">
+<a class="disponivel pulsar" href="produtos/maniacombo/index.html" style="border: 2px solid #000000;">
+<div class="texto">
+<span class="diaPromo"></span>
+<h3>Combo Casal Raiz - 2 Burgões + Batata Especial 500g + 2 Refrigerantes 350 ml</h3>
+                                        de <span class="precoPromocao">R$ 59,80</span> por
+                                        <span class="preco" style="font-size: 20px;"> <b style="background: #077c22; color: white; border-radius: 8px; padding: 0px 4px;">R$
+											32,90</b> </span>
+<span><i>
+</i></span>
+<span class="estoque" style="margin-top: 4px;">🔥 Apenas <b style="background: red; color: white; border-radius: 8px; padding: 0px 4px;"><span id="estoqueCombo">9</span> combo(s)
+                                        </b> com esse preço especial</span>
+</div>
+<div class="fotoProduto">
+<figure>
+<img alt="(Apenas Retirada) Mania Burguer" height="110px" loading="lazy" src="images/casal0.webp" width="110px"/>
+</figure>
+</div>
+</a>
+</div>
+<div class="item">
+<a class="disponivel pulsar" href="produtos/familiamania/index.html" style="border: 2px solid #000000;">
+<div class="texto">
+<span class="diaPromo"></span>
+<h3>Combo Família Raiz: 4 Burgões + 2 Batatas Especiais 500g + Refrigerante 2 litros </h3>
+                                        de <span class="precoPromocao">R$ 89,80</span> por
+                                        <span class="preco" style="font-size: 20px;"> <b style="background: #077c22; color: white; border-radius: 8px; padding: 0px 4px;">R$
+											54,90</b> </span>
+<span class="estoque" style="margin-top: 4px;">🔥 Apenas <b style="background: red; color: white; border-radius: 8px; padding: 0px 4px;"><span id="estoqueCombo">5</span> combo(s)
+                                        </b> com esse preço especial</span>
+</div>
+<div class="fotoProduto">
+<figure>
+<img alt="(Apenas Retirada) Mania Burguer" height="110px" loading="lazy" src="images/familia0.webp" width="110px"/>
+</figure>
+</div>
+</a>
+</div>
+<div class="item">
+<a class="disponivel" href="produtos/maniaindividual/index.html">
+<div class="texto">
+<h3>Combo Clássico Raiz: Burgão, Fritas 150g &amp; Refri 350ML</h3>
+
+                                        de <span class="precoPromocao">R$ 39,80</span> por
+                                        <span class="preco"> R$ 19,90 </span>
+</div>
+<div class="fotoProduto">
+<figure>
+<img alt="(Apenas Retirada) Mania Burguer" height="110px" loading="lazy" src="images/classico0.webp" width="110px"/>
+</figure>
+</div>
+</a>
+</div>
+<div class="alert alert-success" style="color: red;outline: 2px solid red; background-color: rgb(255, 217, 217);">
+<b>A promoção vai acabar em:</b>
+<div class="countdown">
+<!-- <div class="box">
+								<span id="days">00</span>
+								<p>Dias</p>
+								</div>
+								<div class="box">
+								<span id="hours">00</span>
+								<p>Horas</p>
+								</div> -->
+<div class="box">
+<span id="minutes">00</span>
+<p>Minutos</p>
+</div>
+<div class="box">
+<span id="seconds">00</span>
+<p>Segundos</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="categoria" id="acai">
+<h2>Lanches individuais</h2>
+<div class="produtos">
+<div class="item">
+<a class="disponivel" href="produtos/classicmania/index.html">
+<div class="texto">
+<h3>Burgão Especial.</h3>
+<span>2 Adicionais Grátis</span> por
+                                        <span class="preco"> R$ 15,90 </span>
+</div>
+<div class="fotoProduto">
+<figure>
+<img alt="(Apenas Retirada) Mania Burguer" height="110px" loading="lazy" src="images/alice.jpg" width="110px"/>
+</figure>
+</div>
+</a>
+</div>
+<div class="item">
+<a class="disponivel" href="produtos/bruxa/index.html">
+<div class="texto">
+<h3>Burgão Duplo</h3>
+<span>2 Adicionais Grátis</span> por
+                                        <span class="preco" style="font-size: 20px;"> R$ 26,90 </span>
+</div>
+<div class="fotoProduto">
+<figure>
+<img alt="(Apenas Retirada) Mania Burguer" height="110px" loading="lazy" src="images/duplo.jpg" width="110px"/>
+</figure>
+</div>
+</a>
+</div>
+<div class="item">
+<a class="disponivel" href="produtos/coleoy/index.html">
+<div class="texto">
+<h3>Burgão Triplo</h3>
+<span>2 Adicionais Grátis</span> por
+                                        <span class="preco"> R$ 27,90 </span>
+</div>
+<div class="fotoProduto">
+<figure>
+<img alt="(Apenas Retirada) Mania Burguer" height="110px" loading="lazy" src="images/triplo1.jpg" width="110px"/>
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<main id="lista">
+<div class="container">
+<div class="alert">
+<b style="font-size: 20px;">4,8</b><br/>
+<i aria-hidden="true" class="fa fa-star" style="color: goldenrod;"></i>
+<i aria-hidden="true" class="fa fa-star" style="color: goldenrod;"></i>
+<i aria-hidden="true" class="fa fa-star" style="color: goldenrod;"></i>
+<i aria-hidden="true" class="fa fa-star" style="color: goldenrod;"></i>
+<i aria-hidden="true" class="fa fa-star-half-alt" style="color: goldenrod;"></i>
+<br/>
+<b>136 avaliações</b> • últimos 90 dias
+                        <br/>
+<label style="color:gray">1.007 avaliações no total</label>
+<!-- <br>
+					<img style="width: 100%; height: auto;" src="img/super-restaurante.webp" alt="Super Restaurante"> -->
+</div>
+<div class="categoria">
+<div class="produtos">
+<!-- Avaliação 1 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Cinthia</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Surpreendentemente gostoso.</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r1.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Lucas</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Sinceramente? Melhor custo-benefício que já vi! Lanche bom, preço sensacional e entrega rápida.</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r2.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Luiza</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">A batata frita estava maravilhosa, bem sequinha, perfeita, com um molho gostoso de alho, não deixe de experimentar... Os hambúrgueres também estavam muito bons, a carne no ponto perfeito. Pedirei mais vezes</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r3.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Ronald</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Quando vi o preço achei q ia ser pequeno, mas me enganei! a qualidade é absurda.</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r4.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Carlla</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;"> A comida fresquinha, saborosa, chegou rapidamente e estava quentinha! </p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r5.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Gregory</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Uma delícia como sempre a comida, parabéns para o pessoal da cozinha.</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r6.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Jussara</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Bom, barato e entrega rápida. Não tem erro, semana que vem peço de novo</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r7.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Julia</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Pedi pela primeira vez e td mundo gostou, vamos pedir mais!</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r8.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Jussara</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Burguer top, amei</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r9.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Isabely</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Gostei muito Sério kkk</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r10.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Kaue</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Muito bom, esta de parabéns</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r11.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Avaliação 3 -->
+<div class="item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+<div class="avaliacao" style="flex-grow: 1;">
+<h3 style="margin: 0; font-size: 16px; color: #333;">Ana</h3>
+<div style="display: flex; align-items: center;">
+<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+<span class="estrelas" style="display: flex;">
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+</span>
+<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+</div>
+<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Comida saborosa, batata sequinha e crocante e boa porção.</p>
+</div>
+<div class="fotoProduto" style="margin-left: 15px;">
+<figure style="margin: 0;">
+<img height="70px" loading="lazy" onclick="expandirImagem(this)" src="images/r12.jpg" style="border-radius: 8px; cursor: pointer;" width="70px"/>
+</figure>
+</div>
+</div>
+<!-- Modal da Imagem -->
+<div id="modalImagem" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
+<img id="imagemExpandida" style="max-width: 90%; max-height: 90%; border-radius: 10px;"/>
+</div>
+<script>
+                                // Atualiza a data em todas as avaliações automaticamente
+                                function formatarDataHoje() {
+                                    let hoje = new Date();
+                                    let dia = String(hoje.getDate()).padStart(2, '0');
+                                    let mes = String(hoje.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+                                    let ano = hoje.getFullYear();
+                                    return `${dia}/${mes}/${ano}`;
+                                }
+
+                                document.querySelectorAll('.data-atual').forEach(el => {
+                                    el.innerText = formatarDataHoje();
+                                });
+
+                                // Função para expandir a imagem
+                                function expandirImagem(img) {
+                                    let modal = document.getElementById("modalImagem");
+                                    let imagemExpandida = document.getElementById("imagemExpandida");
+                                    imagemExpandida.src = img.src;
+                                    modal.style.display = "flex";
+
+                                    // Fecha ao clicar fora da imagem
+                                    modal.onclick = function() {
+                                        modal.style.display = "none";
+                                    }
+                                }
+                            </script>
+<div class="alert alert-success" style="color: red;outline: 2px solid red; background-color: rgb(255, 217, 217);
+						padding: 20px 10px;">
+<b>A promoção vai acabar em:</b>
+<div class="countdown">
+<!-- <div class="box">
+								<span id="days">00</span>
+								<p>Dias</p>
+								</div>
+								<div class="box">
+								<span id="hours">00</span>
+								<p>Horas</p>
+								</div> -->
+<div class="box">
+<span id="minutes">00</span>
+<p>Minutos</p>
+</div>
+<div class="box">
+<span id="seconds">00</span>
+<p>Segundos</p>
+</div>
+</div>
+<a href="#pague-1-leve-2" style="background-color: white; border-radius: 8px;
+						padding: 4px 10px; color:#000000">Clique Para Ver Burgures em Promoção 🖤</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div id="produto"></div>
+<div id="info">
+<a class="fechar" href="#fechar"><i class="far fa-times-circle fa-2x"></i></a>
+<h2>Tipos de Entrega</h2>
+<i class="fa-solid fa-motorcycle"></i> Entrega Motoboy<br/>
+<br/>
+<h2>Formas de Pagamento</h2>
+<i class="fa-regular fa-circle-check"></i> Pix<br/>
+<br/>
+<h2>Endereço</h2>
+<span id="localCidade">cidade</span> - <span id="localEstado">UF</span><br/>
+<br/>
+<h2>Áreas de Entrega</h2>
+<h3><span id="localCidade">cidade</span> - <span id="localEstado">UF</span></h3>
+                GRÁTIS (hoje)<br/>
+<br/>
+</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/delivry.js" type="text/javascript"></script>
+<script type="text/javascript">
+            $('.mostrarHorario').on('click', function() {
+                $('.horarios').toggle('slow');
+            });
+        </script>
+<script type="text/javascript">
+            function updateCountdown() {
+                const now = new Date();
+                const nextMidnight = new Date();
+                nextMidnight.setHours(24, 0, 0, 0); // Próxima meia-noite
+
+                const diff = nextMidnight - now;
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                // document.getElementById("days").textContent = String(days).padStart(2, "0");
+                // document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+                // document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+                // document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+                document.querySelectorAll("#minutes").forEach(el => el.textContent = String(minutes).padStart(2, "0"));
+                document.querySelectorAll("#seconds").forEach(el => el.textContent = String(seconds).padStart(2, "0"));
+            }
+
+            // Atualiza o contador a cada segundo
+            setInterval(updateCountdown, 1000);
+
+            // Inicializa o contador
+            updateCountdown();
+        </script>
+<script data-auto-replace-svg="nest" defer="" src="js/all.js" type="text/javascript"></script>
+<script crossorigin="anonymous" referrerpolicy="no-referrer" src="js/sweetalert.min.js"></script>
+<script>
+            function escolherFraseAleatoria() {
+                const frases = [
+                    "🍔 <b>Lucas</b> acabou de garantir o Combo <b>Casal Raiz</b> com fritas!",
+                    "🚀 <b>Ana</b> pediu o Combo <b>Família</b> há 2 minutos – partiu burgão!",
+                    "🎉 <b>Rafaela</b> finalizou agora o Combo <b>Clássico</b>!",
+                    "🔥 <b>Fernando</b> levou o <b>Família</b> com batata crocante há instantes!",
+                    "😋 <b>Isabela</b> adicionou um Combo <b>Casal Raiz</b> ao carrinho!",
+                    "⏳ <b>Bruno</b> comprou o Combo <b>Clássico</b>! Restam poucas unidades hoje!",
+                    "📦 <b>João</b> pediu 2 Combos <b>Família</b> agora mesmo!",
+                    "🏆 <b>Mirella</b> garantiu o Combo mais pedido: <b>Casal Raiz</b>!",
+                    "🚨 <b>Atenção</b>! Mais de <b>20 pedidos</b> só nos últimos 10 minutos!",
+                    "🔥 Em 2 horas, 42 pessoas pediram combos no <b>Brasil BURGUER</b>!",
+                    "⚡ Hoje já passamos de <b>100 pedidos</b>! Obrigado por bombar o burgão!",
+                    "⏳ Apenas 3 unidades do <b>Combo Família</b> disponíveis! Corre!",
+                    "🚀 +25 combos saíram nos últimos 30 minutos! <b>Clássico</b> voando!",
+                    "⏳ Os combos estão sumindo rápido! Já garantiu o seu hoje?",
+                    "🎯 Mais de <b>280 clientes satisfeitos</b> só nessa semana!",
+                    "🔥 UAU! Já passamos de <b>600 pedidos</b> só neste mês!",
+                    "🚀 Hoje, 81 pessoas garantiram um <b>combo caprichado</b> de burgão!",
+                    "⏳ O estoque do <b>Casal Raiz</b> está quase no fim! Últimas unidades!",
+                    "🎉 A promoção tá estourando! +50 pedidos de combos HOJE!",
+                    "🍟 Combo <b>Clássico</b> com fritas? Foi o que <b>Luana</b> acabou de pedir!"
+                ];
+
+                const indiceAleatorio = Math.floor(Math.random() * frases.length);
+                return frases[indiceAleatorio];
+            }
+
+            function mostrarNotificacao(frase) {
+                if (!Swal.isVisible()) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "bottom-end",
+                        showConfirmButton: false,
+                        timer: 6500,
+                        timerProgressBar: true,
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: frase
+                    });
+                }
+            }
+
+            setInterval(() => {
+                const fraseAleatoria = escolherFraseAleatoria();
+                mostrarNotificacao(fraseAleatoria);
+            }, 25000);
+        </script>
+<script>
+            function diminuirEstoque() {
+                document.querySelectorAll("#estoqueCombo").forEach(elemento => {
+                    let estoqueAtual = parseInt(elemento.textContent, 10);
+                    if (estoqueAtual > 1) {
+                        elemento.textContent = estoqueAtual - 1;
+                    }
+                });
+            }
+
+            // Executa a função a cada 15 segundos
+            setInterval(diminuirEstoque, 15000);
+        </script>
+<div id="location-display" style="padding: 20px; font-size: 18px;"></div>
+<!-- SweetAlert2 e jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+            const themeColor = '#C11E24';
+
+            function setCookie(name, value, days) {
+                let expires = new Date(Date.now() + days * 864e5).toUTCString();
+                document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+            }
+
+            function getCookie(name) {
+                let value = "; " + document.cookie;
+                let parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return decodeURIComponent(parts.pop().split(";").shift());
+            }
+
+            function checkCookie(name) {
+                return getCookie(name) !== undefined;
+            }
+
+            async function fetchLocation() {
+                try {
+                    let response = await fetch('https://get.geojs.io/v1/ip/geo.json');
+                    let {
+                        city = "Sua Cidade", region = "Seu Estado"
+                    } = await response.json();
+                    return {
+                        city,
+                        region
+                    };
+                } catch (error) {
+                    console.error('Erro ao obter a localização:', error);
+                    return {
+                        city: "Sua Cidade",
+                        region: "Seu Estado"
+                    };
+                }
+            }
+
+            async function atualizarLocalizacao(cidade, estado) {
+                const locationDisplay = document.getElementById('location-display');
+                if (cidade && estado) {
+                    locationDisplay.innerHTML = `
+                    <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
+                    <span>${cidade} - ${estado} • 1,8km de você</span>
+                `;
+                }
+                document.querySelectorAll(".localCidade").forEach(el => el.textContent = cidade);
+            }
+            async function escolherLocalizacaoManualmente(detectedRegion) {
+                const {
+                    value: stateData
+                } = await Swal.fire({
+                    title: 'Onde você está?',
+                    text: "Selecione seu estado para continuar.",
+                    input: 'select',
+                    inputPlaceholder: 'Selecione o estado',
+                    confirmButtonText: 'Próximo <i class="fa fa-arrow-right"></i>',
+                    confirmButtonColor: themeColor,
+                    allowOutsideClick: false,
+                    inputOptions: (async () => {
+                        try {
+                            const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome');
+                            const states = await response.json();
+                            const options = {};
+                            states.forEach(state => {
+                                options[JSON.stringify({
+                                    id: state.id,
+                                    sigla: state.sigla,
+                                    nome: state.nome
+                                })] = `${state.nome} (${state.sigla})`;
+                            });
+                            return options;
+                        } catch (error) {
+                            return {
+                                error: 'Não foi possível carregar os estados'
+                            };
+                        }
+                    })(),
+                    preConfirm: (value) => {
+                        if (!value) {
+                            Swal.showValidationMessage('Você precisa selecionar um estado!');
+                        }
+                        return JSON.parse(value);
+                    },
+                    didOpen: () => {
+                        if (detectedRegion) {
+                            const select = Swal.getInput();
+                            for (let i = 0; i < select.options.length; i++) {
+                                const option = select.options[i];
+                                if (option.text.includes(detectedRegion)) {
+                                    select.value = option.value;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                });
+
+                if (stateData) {
+                    const {
+                        value: city
+                    } = await Swal.fire({
+                        title: 'Agora, sua cidade',
+                        text: `Selecione sua cidade em ${stateData.nome}.`,
+                        input: 'select',
+                        inputPlaceholder: 'Selecione a cidade',
+                        confirmButtonText: 'Confirmar',
+                        confirmButtonColor: themeColor,
+                        allowOutsideClick: false,
+                        inputOptions: (async () => {
+                            try {
+                                const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateData.id}/municipios?orderBy=nome`);
+                                const cities = await response.json();
+                                const options = {};
+                                cities.forEach(city => {
+                                    options[city.nome] = city.nome;
+                                });
+                                return options;
+                            } catch (error) {
+                                return {
+                                    error: 'Não foi possível carregar as cidades'
+                                };
+                            }
+                        })(),
+                        inputValidator: (value) => {
+                            if (!value) {
+                                return 'Você precisa selecionar uma cidade!'
+                            }
+                        }
+                    });
+
+                    if (city) {
+                        Swal.fire({
+                            title: 'Verificando localização...',
+                            html: `<div class="flex flex-col items-center"><div class="w-8 h-8 border-4 border-t-red-500 border-gray-200 rounded-full animate-spin"></div><p class="mt-2">Aguarde um momento</p></div>`,
+                            timer: 2000,
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                        }).then(() => {
+                            setCookie("localCidade", city, 365);
+                            setCookie("localEstado", `${stateData.nome} - ${stateData.sigla}`, 365);
+                            atualizarLocalizacao(city, `${stateData.nome} - ${stateData.sigla}`);
+                            Swal.fire({
+                                title: 'Localização confirmada!',
+                                html: `
+                                <div class="text-center">
+                                    <i class="fas fa-check-circle text-5xl text-green-500 mb-4"></i>
+                                    <p class="text-lg font-semibold">Perfeito!</p>
+                                    <p class="text-gray-600">${city} - ${stateData.sigla}</p>
+                                    <div class="bg-green-50 text-green-800 p-3 rounded-lg my-4 text-left text-sm">
+                                        <p><i class="fas fa-map-marker-alt mr-2"></i>Estamos a 6.5km de você!</p>
+                                        <p><i class="fas fa-clock mr-2"></i>Entrega de 25 a 40 minutos</p>
+                                    </div>
+                                </div>`,
+                                confirmButtonText: 'Continuar',
+                                confirmButtonColor: themeColor
+                            });
+                        });
+                    }
+                }
+            }
+            async function iniciarVerificacaoLocal() {
+                if (checkCookie("localCidade") && checkCookie("localEstado")) {
+                    atualizarLocalizacao(getCookie("localCidade"), getCookie("localEstado"));
+                    return;
+                }
+
+                const {
+                    city,
+                    region
+                } = await fetchLocation();
+
+                Swal.fire({
+                    title: 'Confirme sua localização',
+                    html: `
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+						<i class="fas fa-map-marker-alt" style="font-size: 40px; color: #C11E24; margin-bottom: 12px;"></i>
+						<h2 style="font-size: 22px; font-weight: 600; margin-bottom: 4px;">Detectamos sua localização!</h2>
+						<div class="caixa-cidade">
+							<p>${city}</p>
+							<p>${region}</p>
+						</div>
+						<p style="color: #666; font-size: 14px;">Esta é sua localização atual?</p>
+						</div>
+						`,
+                    showCancelButton: true,
+                    confirmButtonText: 'Sim, confirmar localização',
+                    cancelButtonText: 'Não, escolher outro local',
+                    confirmButtonColor: themeColor,
+                    cancelButtonColor: '#6B7280',
+                    customClass: {
+                        popup: 'rounded-xl'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        setCookie("localCidade", city, 365);
+                        setCookie("localEstado", region, 365);
+                        atualizarLocalizacao(city, region);
+
+                        Swal.fire({
+                            title: 'Localização confirmada!',
+                            html: `
+							<div class="text-center">
+							<i class="fas fa-check-circle text-5xl text-green-500 mb-4" style="font-size: 48px; color: #22c55e;"></i>
+							<p class="text-lg font-semibold">Perfeito!</p>
+							<p class="text-gray-600">${city} - ${region}</p>
+							<div class="bg-green-50 text-green-800 p-3 rounded-lg my-4 text-left text-sm" style="background-color: #ecfdf5; color: #065f46;">
+								<p><i class="fas fa-map-marker-alt mr-2"></i>Estamos a 1,8km de você!</p>
+								<p><i class="fas fa-clock mr-2"></i>Entrega de 25 a 40 minutos</p>
+							</div>
+							</div>
+						`,
+                            confirmButtonText: 'Continuar',
+                            confirmButtonColor: themeColor
+                        });
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        escolherLocalizacaoManualmente(region);
+                    }
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                iniciarVerificacaoLocal();
+            });
+        </script>
+</body>
+</html>
