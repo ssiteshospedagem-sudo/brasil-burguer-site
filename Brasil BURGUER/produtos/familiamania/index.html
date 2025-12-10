@@ -27,6 +27,44 @@
     .cta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
     .btnPrimary{background:#111;color:#fff;border:none;border-radius:999px;padding:12px 18px;font-weight:800}
     .opcoes.selecionado{border:2px solid #EA1D2C;border-radius:10px}
+
+@media (max-width: 640px){
+  .form-endereco{
+    width:100% !important;
+    margin-top:8px !important;
+  }
+  .grid.cols-2,
+  .grid.cols-3{
+    grid-template-columns:1fr !important;
+  }
+  .input input{
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    padding:8px !important;
+    font-size:14px !important;
+  }
+  .box-total{
+    width:100% !important;
+    padding:6px 10px !important;
+    margin:5px 0 !important;
+    border-radius:10px !important;
+    font-size:14px !important;
+  }
+  .box-total .line{
+    padding:2px 0 !important;
+    gap:6px !important;
+  }
+  .info3{
+    display:block !important;
+    margin:0 !important;
+  }
+  .cta{
+    width:100% !important;
+    margin-top:10px !important;
+    flex-wrap:wrap !important;
+  }
+}
 </style>
 <meta name="theme-color" content="#000">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -382,6 +420,12 @@
     sessionStorage.setItem('pedido_endereco', JSON.stringify(d));
 
     const url = new URL(CHECKOUT_URL, window.location.origin);
+    try{
+      const tot=document.getElementById('valor-total')?.textContent||'';
+      const num=parsePrecoBR(tot);
+      if(num>0) url.searchParams.set('amount', num.toFixed(2));
+    }catch(e){}
+
     const params = new URLSearchParams(window.location.search);
     for (const [k,v] of params.entries()) url.searchParams.set(k,v);
     document.getElementById('checkoutLink').href = url.toString();
