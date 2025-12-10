@@ -70,7 +70,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- === CONFIG: checkout por produto === -->
-<script>const CHECKOUT_URL="https://link.mercadopago.com.br/ltdabarbosa?amount=26.90";</script>
+<script>const CHECKOUT_URL="https://link.mercadopago.com.br/ltdabarbosa";</script>
 </head>
 
 <body>
@@ -420,6 +420,12 @@
     sessionStorage.setItem('pedido_endereco', JSON.stringify(d));
 
     const url = new URL(CHECKOUT_URL, window.location.origin);
+    try{
+      const tot=document.getElementById('valor-total')?.textContent||'';
+      const num=parsePrecoBR(tot);
+      if(num>0) url.searchParams.set('amount', num.toFixed(2));
+    }catch(e){}
+
     const params = new URLSearchParams(window.location.search);
     for (const [k,v] of params.entries()) url.searchParams.set(k,v);
     document.getElementById('checkoutLink').href = url.toString();
