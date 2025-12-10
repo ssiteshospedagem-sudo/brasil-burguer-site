@@ -29,8 +29,19 @@
     .opcoes.selecionado{border:2px solid #EA1D2C;border-radius:10px}
 
 @media (max-width: 640px){
-  .form-endereco{
+  .info3{
+    display:block !important;
+  }
+  .box-total,
+  .form-endereco,
+  .cta{
     width:100% !important;
+  }
+  .box-total{
+    margin-bottom:10px;
+  }
+  .form-endereco{
+    margin-top:10px;
   }
   .grid.cols-2,
   .grid.cols-3{
@@ -41,13 +52,16 @@
     max-width:100% !important;
     box-sizing:border-box !important;
   }
+  .cta{
+    justify-content:flex-start !important;
+  }
 }
 </style>
 <meta name="theme-color" content="#000">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- === CONFIG: checkout por produto === -->
-<script>const CHECKOUT_URL="https://link.mercadopago.com.br/ltdabarbosa";</script>
+<script>const CHECKOUT_URL="COLOQUE_AQUI_O_SEU_LINK_DE_CHECKOUT";</script>
 </head>
 
 <body>
